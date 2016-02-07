@@ -51,7 +51,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(399, 177);
+            this.button1.Location = new System.Drawing.Point(36, 175);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(63, 59);
             this.button1.TabIndex = 1;
@@ -61,18 +61,18 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(731, 256);
+            this.button2.Location = new System.Drawing.Point(197, 303);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(50, 56);
+            this.button2.Size = new System.Drawing.Size(164, 38);
             this.button2.TabIndex = 2;
-            this.button2.Text = "setting";
+            this.button2.Text = "Output Dir";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox1
             // 
             this.textBox1.AllowDrop = true;
-            this.textBox1.Location = new System.Drawing.Point(187, 346);
+            this.textBox1.Location = new System.Drawing.Point(190, 347);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(641, 22);
             this.textBox1.TabIndex = 3;
@@ -93,16 +93,16 @@
             this.listBox1.FormattingEnabled = true;
             this.listBox1.HorizontalScrollbar = true;
             this.listBox1.ItemHeight = 15;
-            this.listBox1.Location = new System.Drawing.Point(510, 19);
+            this.listBox1.Location = new System.Drawing.Point(206, 19);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(290, 184);
+            this.listBox1.Size = new System.Drawing.Size(594, 274);
             this.listBox1.TabIndex = 5;
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(225, 274);
+            this.button3.Location = new System.Drawing.Point(147, 376);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(104, 55);
+            this.button3.Size = new System.Drawing.Size(105, 41);
             this.button3.TabIndex = 6;
             this.button3.Text = "FindPPTX";
             this.button3.UseVisualStyleBackColor = true;
@@ -110,7 +110,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(357, 274);
+            this.button4.Location = new System.Drawing.Point(36, 376);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(105, 41);
             this.button4.TabIndex = 7;
@@ -121,7 +121,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(354, 324);
+            this.label3.Location = new System.Drawing.Point(33, 426);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 15);
             this.label3.TabIndex = 8;
@@ -129,9 +129,9 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(631, 210);
+            this.button5.Location = new System.Drawing.Point(622, 301);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(168, 25);
+            this.button5.Size = new System.Drawing.Size(168, 40);
             this.button5.TabIndex = 9;
             this.button5.Text = "Extract Slides";
             this.button5.UseVisualStyleBackColor = true;
@@ -154,7 +154,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "PPT Browser";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
