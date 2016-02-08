@@ -41,8 +41,12 @@ namespace PPTBrowser
             {
                 label1.Text = filename;
                 listBox1.Items.Add(filename);
-                string[] item = {filename, "?", "0"};
-                listView1.Items.Add(new ListViewItem(item));
+                ListViewItem item = new ListViewItem();
+                item.Text = filename;
+                item.SubItems.Add("?");
+                item.SubItems.Add("0");
+                //string[] item = {filename, "?", "0"};
+                listView1.Items.Add(item);
             }
             //ExtractSlidesFromPPT(false);
         }
