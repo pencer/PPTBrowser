@@ -70,6 +70,7 @@ namespace PPTBrowser
                 foreach (string item in listBox1.Items)
                 {
                     String pptfilename = item;// label1.Text;
+                    label2.Text = "Opening " + item + "...";
                     // オープン
                     ppt = app.Presentations.Open(pptfilename,
                         Microsoft.Office.Core.MsoTriState.msoTrue,
