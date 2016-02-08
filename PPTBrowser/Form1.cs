@@ -41,6 +41,8 @@ namespace PPTBrowser
             {
                 label1.Text = filename;
                 listBox1.Items.Add(filename);
+                string[] item = {filename, "?", "0"};
+                listView1.Items.Add(new ListViewItem(item));
             }
             //ExtractSlidesFromPPT(false);
         }
@@ -48,6 +50,12 @@ namespace PPTBrowser
         private void Form1_Load(object sender, EventArgs e)
         {
             textBox1.Text = Properties.Settings.Default.BaseFolderPath;
+
+            listView1.FullRowSelect = true;
+            listView1.View = System.Windows.Forms.View.Details;
+            listView1.Columns.Add("File", 400);
+            listView1.Columns.Add("Slides");
+            listView1.Columns.Add("Status");
 
         }
 
@@ -175,6 +183,11 @@ namespace PPTBrowser
         private void button5_Click(object sender, EventArgs e)
         {
             ExtractSlidesFromPPT(true);
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
