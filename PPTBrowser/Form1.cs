@@ -81,7 +81,16 @@ namespace PPTBrowser
                     //foreach (string item in listBox1.Items)
                 {
                     String pptfilename = lvi.SubItems[0].Text;//item;// label1.Text;
-                    label2.Text = "Opening " + pptfilename + "...";
+
+                    if (lvi.SubItems[2].Text == "Done") {
+                        label2.Text = "Skipping " + pptfilename + "... ";
+                        continue;
+                    }
+                    else
+                    {
+                        label2.Text = "Opening " + pptfilename + "... ";
+                    }
+
 
                     // オープン
                     ppt = app.Presentations.Open(pptfilename,
@@ -91,7 +100,7 @@ namespace PPTBrowser
 
                     // https://msdn.microsoft.com/JA-JP/library/office/ff746030.aspx
                     String basefilename = Properties.Settings.Default.BaseFolderPath + "\\" + pptfilename.Replace("\\", "_").Replace(":", "_");
-                    label2.Text = "Slides.count=" + ppt.Slides.Count + ", " + basefilename;
+                    label2.Text += "#Slides=" + ppt.Slides.Count;
                     int numslides = ppt.Slides.Count;
                     for (int i = 1; i <= numslides; i++)
                     {
@@ -103,6 +112,7 @@ namespace PPTBrowser
                     lvi.SubItems[2].Text = "Done";
                     //app.Presentations[1].Close();
                 }
+                label2.Text = "Done.";
 
                 // http://stackoverflow.com/questions/981547/powerpoint-launched-via-c-sharp-does-not-quit
                 GC.Collect();
