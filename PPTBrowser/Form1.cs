@@ -41,12 +41,10 @@ namespace PPTBrowser
             {
                 label1.Text = filename;
                 listBox1.Items.Add(filename);
-                ListViewItem item = new ListViewItem();
-                item.Text = filename;
+                ListViewItem item = new ListViewItem(filename);
                 item.SubItems.Add("?");
-                item.SubItems.Add("0");
-                //string[] item = {filename, "?", "0"};
-                listView1.Items.Add(item);
+                item.SubItems.Add("-");
+                listView1.Items.Add(filename);
             }
             //ExtractSlidesFromPPT(false);
         }
@@ -60,7 +58,7 @@ namespace PPTBrowser
             listView1.Columns.Add("File", 400);
             listView1.Columns.Add("Slides");
             listView1.Columns.Add("Status");
-
+//            listView1.Items.Add("test");
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -79,10 +77,12 @@ namespace PPTBrowser
                 // 表示する
                 app.Visible = (visible) ? Microsoft.Office.Core.MsoTriState.msoTrue : Microsoft.Office.Core.MsoTriState.msoFalse;
 
-                foreach (string item in listBox1.Items)
+                foreach (ListViewItem lvi in listView1.Items)
+                    //foreach (string item in listBox1.Items)
                 {
-                    String pptfilename = item;// label1.Text;
-                    label2.Text = "Opening " + item + "...";
+                    String pptfilename = lvi.SubItems[0].Text;//item;// label1.Text;
+                    label2.Text = "Opening " + pptfilename + "...";
+
                     // オープン
                     ppt = app.Presentations.Open(pptfilename,
                         Microsoft.Office.Core.MsoTriState.msoTrue,
@@ -92,12 +92,15 @@ namespace PPTBrowser
                     // https://msdn.microsoft.com/JA-JP/library/office/ff746030.aspx
                     String basefilename = Properties.Settings.Default.BaseFolderPath + "\\" + pptfilename.Replace("\\", "_").Replace(":", "_");
                     label2.Text = "Slides.count=" + ppt.Slides.Count + ", " + basefilename;
-                    for (int i = 1; i <= ppt.Slides.Count; i++)
+                    int numslides = ppt.Slides.Count;
+                    for (int i = 1; i <= numslides; i++)
                     {
                         // スライド番号は１から始まるのに注意
                         ppt.Slides.Range(i).Export(basefilename + i.ToString("_%03d") + ".png", "png", 640, 480);
                     }
                     ppt.Close();
+                    lvi.SubItems[1].Text = numslides.ToString();
+                    lvi.SubItems[2].Text = "Done";
                     //app.Presentations[1].Close();
                 }
 
@@ -157,6 +160,10 @@ namespace PPTBrowser
                 foreach (string f in Directory.GetFiles(sDir, strext))
                 {
                     listBox1.Items.Add(f);
+                    ListViewItem item = new ListViewItem(f);
+                    item.SubItems.Add("?");
+                    item.SubItems.Add("-");
+                    listView1.Items.Add(item);
                 }
                 foreach (string d in Directory.GetDirectories(sDir))
                 {
@@ -181,6 +188,7 @@ namespace PPTBrowser
             if (dlg.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 label3.Text = dlg.SelectedPath;
+                DirSearch(label3.Text);
             }
         }
 
