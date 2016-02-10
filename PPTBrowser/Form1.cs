@@ -39,8 +39,8 @@ namespace PPTBrowser
             string[] filenames = (string[])e.Data.GetData(DataFormats.FileDrop, false);
             foreach (string filename in filenames)
             {
-                label1.Text = filename;
-                listBox1.Items.Add(filename);
+                //label1.Text = filename;
+                //listBox1.Items.Add(filename);
                 ListViewItem item = new ListViewItem(filename);
                 item.SubItems.Add("?");
                 item.SubItems.Add("-");
@@ -159,7 +159,7 @@ namespace PPTBrowser
             {
                 foreach (string f in Directory.GetFiles(sDir, strext))
                 {
-                    listBox1.Items.Add(f);
+                    //listBox1.Items.Add(f);
                     ListViewItem item = new ListViewItem(f);
                     item.SubItems.Add("?");
                     item.SubItems.Add("-");
